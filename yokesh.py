@@ -1,52 +1,143 @@
 from http.server import HTTPServer,BaseHTTPRequestHandler
 
 content='''
-<!doctype html>
-<html>
+from http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title> My Web Server</title>
+  <meta charset="UTF-8">
+  <title>TCP/IP Protocol </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f2f6fc;
+      color: #333;
+      padding: 20px;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0d47a1, #1976d2);
+      padding: 20px;
+      text-align: center;
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+
+    .layer {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 6px solid #1976d2;
+      border-radius: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .layer:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .layer h2 {
+      color: #0d47a1;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 25px;
+    }
+
+    ul li {
+      padding: 5px 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
-<h1>Top Five Revenue from Companies</h1>
-<table border=2>
-<tr>
-<th> Company Name </th>
-<th> Revenue </th>
-<th> Financial Year </th>
-</tr>
 
-<tr>
-<td> Microsoft </td>
-<td> 86$ </td>
-<td> 2014 </td>
-</tr>
+  <header>
+    <h1>TCP/IP Protocol 🛜</h1>
+  </header>
 
-<tr>
-<td> Oracle </td>
-<td> 37$ </td>
-<td> 2013 </td>
-</tr>
+  <div class="layer">
+    <h2>1. Application Layer</h2>
+    <ul>
+      <li>HTTP</li>
+      <li>FTP</li>
+      <li>SMTP</li>
+      <li>DNS</li>
+      <li>Telnet</li>
+      <li>SSH</li>
+    </ul>
+  </div>
 
-<tr>
-<td> SAP </td>
-<td> 20$ </td>
-<td> 2013 </td>
-</tr>
+  <div class="layer">
+    <h2>2. Transport Layer</h2>
+    <ul>
+      <li>TCP (Transmission Control Protocol)</li>
+      <li>UDP (User Datagram Protocol)</li>
+    </ul>
+  </div>
 
-<tr>
-<td> VMware </td>
-<td> 5.2$ </td>
-<td> 2013 </td>
-</tr>
+  <div class="layer">
+    <h2>3. Internet Layer</h2>
+    <ul>
+      <li>IP (Internet Protocol)</li>
+      <li>ICMP (Internet Control Message Protocol)</li>
+      <li>ARP (Address Resolution Protocol)</li>
+      <li>IGMP (Internet Group Management Protocol)</li>
+    </ul>
+  </div>
 
-<tr>
-<td> CA Technologies </td>
-<td> 4.7$ </td>
-<td> 2013 </td>
-</tr>
+  <div class="layer">
+    <h2>4. Network Access Layer</h2>
+    <ul>
+      <li>Ethernet</li>
+      <li>Wi-Fi</li>
+      <li>PPP (Point-to-Point Protocol)</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 yokesh | TCP/IP</p>
+  </footer>
 
 </body>
 </html>
+
+
+"""
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type', 'text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address = ('',8000)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
 '''
 
 class MyServer(BaseHTTPRequestHandler):
