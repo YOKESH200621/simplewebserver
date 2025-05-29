@@ -1,5 +1,9 @@
 # EX01 Developing a Simple Webserver
+<<<<<<< HEAD
 ## Date:29.05.2025
+=======
+## Date:23-05-2025
+>>>>>>> 88c020091009a5f1dd477ce937942a554c011c6d
 
 ## AIM:
 To develop a simple webserver to serve html pages and display the list of protocols in TCP/IP Protocol Suite.
@@ -37,6 +41,7 @@ Open a browser and navigate to http://127.0.0.1:8000 (or the assigned port).
 
 ## PROGRAM:
 ```
+<<<<<<< HEAD
 from http.server import HTTPServer,BaseHTTPRequestHandler
 
 content='''
@@ -165,6 +170,26 @@ content = """
 </html>
 
 
+=======
+from http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TCP/IP Protocol Suite</title>
+</head>
+<body>
+    <h1>Protocols in the TCP/IP Protocol Suite</h1>
+    <ul>
+        <li>Application Layer: HTTP, FTP, SMTP, DNS, Telnet, SNMP</li>
+        <li>Transport Layer: TCP, UDP</li>
+        <li>Internet Layer: IP, ICMP, IGMP, ARP</li>
+        <li>Network Access Layer: Ethernet, Wi-Fi, PPP</li>
+    </ul>
+</body>
+</html>
+
+>>>>>>> 88c020091009a5f1dd477ce937942a554c011c6d
 """
 class myhandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -177,6 +202,7 @@ server_address = ('',8000)
 httpd = HTTPServer(server_address,myhandler)
 print("my webserver is running...")
 httpd.serve_forever()
+<<<<<<< HEAD
 '''
 
 class MyServer(BaseHTTPRequestHandler):
@@ -198,6 +224,16 @@ httpd.serve_forever()
 ## OUTPUT:
 ![alt text](<Screenshot 2025-05-12 204654.png>)
 ![alt text](<yokesh/Screenshot 2025-05-29 211909.png>)
+=======
+```
+
+## OUTPUT:
+
+![Screenshot (55)](https://github.com/user-attachments/assets/dcde8f31-44fa-468d-8e9c-f11a6a8e2694)
+
+![Screenshot (56)](https://github.com/user-attachments/assets/1902ae96-5680-4a3a-9dfb-d26cb197b98c)
+
+>>>>>>> 88c020091009a5f1dd477ce937942a554c011c6d
 
 ## RESULT:
 The program for implementing simple webserver is executed successfully.
